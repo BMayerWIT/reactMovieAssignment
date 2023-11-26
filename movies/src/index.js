@@ -12,6 +12,10 @@ import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import UpcomingMoviesPage from "./pages/upcomingMoviesPage";
 import TopRatedMoviesPage from "./pages/topRatedMoviesPage";
+import PopularMoviesPage from "./pages/popularMoviesPage";
+import RecommendMoviesPage from "./pages/recommendedMoviesPage";
+import MovieTrailerPage from "./pages/movieTrailerPage";
+import { Helmet } from 'react-helmet';
 
 
 
@@ -31,6 +35,7 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
+      
         <SiteHeader />
         <MoviesContextProvider>
           <Routes>
@@ -38,6 +43,9 @@ const App = () => {
             <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
             <Route path="/movies/upcoming" element={<UpcomingMoviesPage />} />
             <Route path="/movies/topRated" element={<TopRatedMoviesPage />} />
+            <Route path="/movies/popular" element={<PopularMoviesPage />} />
+            <Route path="/movies/:id/trailer" element={<MovieTrailerPage />} />
+            <Route path="/movies/:id/recommended" element={<RecommendMoviesPage />} />
             <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
             <Route path="/movies/:id" element={<MoviePage />} />
             <Route path="/" element={<HomePage />} />

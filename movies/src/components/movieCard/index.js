@@ -16,6 +16,10 @@ import { Link } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
 import React, { useContext  } from "react";
 import { MoviesContext } from "../../contexts/moviesContext";
+import ExploreIcon from '@mui/icons-material/Explore';
+import { getRecommendedMovies } from "../../api/tmdb-api";
+import PlayIcon from '@mui/icons-material/PlayCircle';
+import { getMovieTrailer } from "../../api/tmdb-api";
 
 export default function MovieCard({ movie, action }) {
   const { favorites, addToFavorites } = useContext(MoviesContext);
@@ -30,6 +34,17 @@ export default function MovieCard({ movie, action }) {
     e.preventDefault();
     addToFavorites(movie);
   };
+
+  const handleGetRecommendedMovies = (e) => {
+    e.preventDefault();
+    getRecommendedMovies(movie.id);
+  };
+
+  const handleGetMovieTrailer = (e) => {
+    e.preventDefault();
+    getMovieTrailer(movie.id);
+  };
+
   return (
     <Card sx={{ maxWidth: 345 }}>
        <CardHeader
@@ -72,6 +87,16 @@ export default function MovieCard({ movie, action }) {
       </CardContent>
       <CardActions disableSpacing>
         {action(movie)}
+        <Link to={`/movies/${movie.id}/recommended`}>
+          <Button variant="outlined" size="medium" color="primary">
+            <ExploreIcon />
+          </Button>
+        </Link>
+        <Link to={`/movies/${movie.id}/trailer`}>
+          <Button variant="outlined" size="medium" color="primary">
+            <PlayIcon />
+          </Button>
+        </Link>
         <Link to={`/movies/${movie.id}`}>
           <Button variant="outlined" size="medium" color="primary">
             More Info ...

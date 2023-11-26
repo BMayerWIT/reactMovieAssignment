@@ -101,9 +101,23 @@
     });
   };
 
-  export const getLatestMovies = (id) => {
+  export const getPopularMovies = () => {
     return fetch(
-      `https://api.themoviedb.org/3/movie/${id}/latest?api_key=${process.env.REACT_APP_TMDB_KEY}`
+      `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+    ).then((response) => {
+      if (!response.ok) {
+        throw new Error(response.json().message);
+      }
+      return response.json();
+    })
+    .catch((error) => {
+       throw error
+    });
+  }; 
+    
+  export const getRecommendedMovies = (movie_id) => {
+    return fetch(
+      `https://api.themoviedb.org/3/movie/${movie_id}/recommendations?api_key=${process.env.REACT_APP_TMDB_KEY}`
     ).then((response) => {
       if (!response.ok) {
         throw new Error(response.json().message);
@@ -118,4 +132,29 @@
        throw error
     });
   }; 
-    
+
+  export const getMovieTrailer = (movie_id) => {
+    return fetch(
+      `https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${process.env.REACT_APP_TMDB_KEY}`
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(response.json().message);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data)
+        // Assuming the first result in the videos array is a trailer
+        if (data != null) {
+          const trailerUrl = `https://www.youtube.com/watch?v=${data.results[0].key}`;
+          return trailerUrl;
+        } else {
+          // No trailer found
+          return null;
+        }
+      })
+      .catch((error) => {
+        throw error;
+      });
+  };

@@ -34,7 +34,7 @@ This is a repository with a react app built using the tmbd API to display lists 
 + Recommended movies = /movies/:id/recommended
 
 
-## Independent learning (If relevant).
+## Independent learning.
 Material Icons icon search for various icons = https://mui.com/material-ui/material-icons/
 Pagination blogs to learn how to display different amounts of elements in an array = https://hygraph.com/blog/react-pagination / https://www.freecodecamp.org/news/build-a-custom-pagination-component-in-react/
 Youtube video imbedding in react = https://www.npmjs.com/package/react-youtube / https://stackoverflow.com/questions/6556559/youtube-api-extract-video-id

@@ -27,9 +27,9 @@ const RecommendedMoviesPage = (props) => {
 
   const recommendedMovies = data.results;
 
-//   const favorites = recommendedMovies.filter(m => m.favorite)
-//   localStorage.setItem('favorites', JSON.stringify(favorites))
-//   const addToFavorites = (movieId) => true 
+   const favorites = recommendedMovies.filter(m => m.favorite)
+   localStorage.setItem('favorites', JSON.stringify(favorites))
+   const addToFavorites = (movieId) => true 
 
   return (
     <PageTemplate

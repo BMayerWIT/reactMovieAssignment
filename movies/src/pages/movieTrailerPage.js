@@ -9,7 +9,6 @@ import Spinner from "../components/spinner";
 const MovieTrailerPage = () => {
   const { id } = useParams();
 
-  // Fetch the trailer for the movie
   const { data, error, isLoading, isError } = useQuery(
     ["movieTrailer", { id }],
     () => getMovieTrailer(id)
@@ -23,7 +22,6 @@ const MovieTrailerPage = () => {
     return <h1>{error?.message || "Failed to load trailer."}</h1>;
   }
 
-  // Assuming the trailer URL is directly returned from getMovieTrailer
   const trailerUrl = data;
   
 

@@ -18,7 +18,6 @@ const TopRatedMoviesPage = (props) => {
   }  
   const topRatedMovies = data.results;
 
-  // Redundant, but necessary to avoid app crashing.
   const favorites = topRatedMovies.filter(m => m.favorite)
   localStorage.setItem('favorites', JSON.stringify(favorites))
   const addToFavorites = (movieId) => true 

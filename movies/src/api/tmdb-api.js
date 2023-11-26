@@ -145,7 +145,6 @@
       })
       .then((data) => {
         console.log(data)
-        // Assuming the first result in the videos array is a trailer
         if (data != null) {
           const trailerUrl = `https://www.youtube.com/watch?v=${data.results[0].key}`;
           return trailerUrl;

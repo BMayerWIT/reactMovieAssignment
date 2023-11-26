@@ -20,6 +20,7 @@ import ExploreIcon from '@mui/icons-material/Explore';
 import { getRecommendedMovies } from "../../api/tmdb-api";
 import PlayIcon from '@mui/icons-material/PlayCircle';
 import { getMovieTrailer } from "../../api/tmdb-api";
+import InfoIcon from '@mui/icons-material/Info';
 
 export default function MovieCard({ movie, action }) {
   const { favorites, addToFavorites } = useContext(MoviesContext);
@@ -99,7 +100,7 @@ export default function MovieCard({ movie, action }) {
         </Link>
         <Link to={`/movies/${movie.id}`}>
           <Button variant="outlined" size="medium" color="primary">
-            More Info ...
+            <InfoIcon />
           </Button>
         </Link>
       </CardActions>

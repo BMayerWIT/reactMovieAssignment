@@ -8,7 +8,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 function MovieListPageTemplate({ movies, title, action }) {
-  const itemsPerPage = 10;
+  const itemsPerPage = 11;
   const [currentPage, setCurrentPage] = useState(1);
   const [nameFilter, setNameFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
